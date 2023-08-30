@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --torquise: rgba(127, 255, 212, 0.4);
+  --darkGray: rgba(59, 59, 59);
+  --gray: rgb(103, 103, 103);
+}
+
+.background {
+  background-color: var(--torquise);
+}
+
+.colorDarkGray {
+  color: var(--darkGray);
+}
+
+.colorGray {
+  color: var(--gray);
+}
+
+.roundedCorners {
+  border-radius:5px;
+}
