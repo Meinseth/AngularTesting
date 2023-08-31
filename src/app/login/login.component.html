@@ -1,10 +1,37 @@
 <div class="container mt-5">
   <div class="row justify-content-md-center align-items-center">
 
-    <div class="col-md-auto text-center p-5 roundedCorners " style="background-color:white">
-      <i class="fa-solid fa-rocket fa-2xl colorGray mb-4"></i>
-      <h1 class="colorDarkGray">AngularTesting</h1>
-      <h4 class="colorGray">logg inn</h4>
+    <div class="col-md-auto p-5 roundedCorners" style="background-color:white">
+
+      <div class="text-center">
+        <i class="fa-solid fa-rocket fa-2xl colorGray mb-4 center"></i>
+        <h1 class="colorDarkGray">AngularTesting</h1>
+        <h4 class="colorGray mb-5">logg inn</h4>
+      </div>
+
+      <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()">
+
+        <div class="form-floating mb-4">
+          <input type="email" class="form-control" id="input" aria-describedby="emailHelp" formControlName="email"
+          placeholder="name@example.com">
+          <label for="input" class="form-label text-bold">E-post</label>
+
+        </div>
+
+        <div class="form-floating mb-4">
+          <input type="password" id="password" class="form-control" placeholder="Password" formControlName="password">
+          <label for="password" class="form-label">Passord</label>
+
+        </div>
+
+        <div class="row justify-content-md-end">
+          <div class="col col-auto">
+            <button type="submit" class="btn myBtnPrimary">Logg inn</button>
+          </div>
+        </div>
+
+      </form>
+
     </div>
 
   </div>

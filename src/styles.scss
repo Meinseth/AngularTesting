@@ -1,11 +1,22 @@
 :root {
-  --torquise: rgba(127, 255, 212, 0.4);
+  --torquise: rgb(165, 254, 225);
+  --mediumTorquise: rgb(137, 203, 181);
+  --darkTorquise: rgb(69, 102, 91);
   --darkGray: rgba(59, 59, 59);
-  --gray: rgb(103, 103, 103);
+  --gray: rgba(103, 103, 103);
+  --lightBlue: rgb(80, 232, 255);
+  --offwhite: rgb(247, 247, 247);
+  --bluePurble: rgb(145,152,229);
+  --darkBluePurble: rgb(119, 126, 198);
+}
+
+* {
+  color: var(--darkGray);
+  font-weight: 500;
 }
 
 .background {
-  background-color: var(--torquise);
+  background-image: linear-gradient(to left,var(--torquise), var(--bluePurble));
 }
 
 .colorDarkGray {
@@ -17,5 +28,24 @@
 }
 
 .roundedCorners {
-  border-radius:5px;
+  border-radius: 5px;
+}
+
+.myBtnPrimary {
+  color: var(--offwhite);
+  background-color: var(--bluePurble);
+}
+
+.myBtnPrimary:focus {
+  color: var(--offwhite)!important;
+  background-color: var(--darkBluePurble)!important;
+}
+.myBtnPrimary:active {
+  color: var(--offwhite);
+  background-color: var(--darkBluePurble);
+}
+
+.myBtnPrimary:hover {
+  color: var(--offwhite);
+  background-color: var(--darkBluePurble);
 }
