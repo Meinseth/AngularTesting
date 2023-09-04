@@ -6,7 +6,7 @@ import { AuthService } from '../service/auth/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard  {
+export class AuthGuard {
 
   constructor(
     private auth: AuthService,
@@ -15,10 +15,12 @@ export class AuthGuard  {
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.auth.isLoggedIn()) {
-      return true;
-    }
+    state: RouterStateSnapshot) {
+      const user = this.auth.user;
+      if (user) {
+          // authorised so return true
+          return true;
+      }
     this.router.navigate(['/login']);
     return false;
   }

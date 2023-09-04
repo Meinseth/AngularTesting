@@ -12,16 +12,19 @@
       <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()">
 
         <div class="form-floating mb-4">
-          <input type="email" class="form-control" id="input" aria-describedby="emailHelp" formControlName="email"
-          placeholder="name@example.com">
+          <input type="email" class="form-control" id="input" aria-describedby="emailHelp" name="email" formControlName="email"
+            placeholder="name@example.com">
           <label for="input" class="form-label text-bold">E-post</label>
-
         </div>
 
         <div class="form-floating mb-4">
           <input type="password" id="password" class="form-control" placeholder="Password" formControlName="password">
           <label for="password" class="form-label">Passord</label>
+        </div>
 
+        <div *ngIf="submitted && (email.errors || password.errors)" class="alert alert-danger mt-2">
+          <div *ngIf="email.errors?.['required']">Fornavn er påkrevd</div>
+          <div *ngIf="password.errors?.['required']">Passord er påkrevd</div>
         </div>
 
         <div class="row justify-content-md-end">

@@ -1,8 +1,8 @@
-export interface ILoginForm{ 
-  email:string;
-  password:string;
-}
-
-export interface user{
-  
+export interface IUser {
+  id: string,
+  email: string,
+  password: string,
+  firstname: string,
+  lastname: string,
+  token: string
 }
