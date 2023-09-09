@@ -27,11 +27,12 @@
           <div *ngIf="password.errors?.['required']">Passord er påkrevd</div>
         </div>
 
-        <div class="row justify-content-md-end">
+        <div class="row justify-content-md-between">
 
           <div class="col col-auto">
-            <button (click)="getUsers()">få brukere</button>
+            <button (click)="goToRegister()" class="btn colorDarkGray" style="text-decoration: underline;font-weight: 500;">Registrer</button>
           </div>
+
           <div class="col col-auto">
             <button type="submit" class="btn myBtnPrimary">Logg inn</button>
           </div>

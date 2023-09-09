@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, map } from 'rxjs';
-import {  IUser } from 'src/app/Interfaces/interface';
+import { IUser } from 'src/app/interfaces/interface';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -18,8 +18,25 @@ export class AuthService {
     this.user = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!));
   }
 
+  register(firstname:string, lastname:string,email:string ,password:string): Observable<IUser> {
+    const user = {
+      firstname: firstname,
+      lastname: lastname,
+      email:email,
+      password:password
+    }
+    return this.http.post<IUser>(environment.apiUrl + "/users/register", user)
+      .pipe(
+        map((user) => {
+          localStorage.setItem('user', JSON.stringify(user));
+          this.user.next(user);
+          return user
+        })
+      );
+  }
+
   login(email: string | null, password: string | null): Observable<IUser> {
-    return this.http.post<IUser>(environment.apiUrl + "user/login", email + "/" + password)
+    return this.http.get<IUser>(environment.apiUrl + "/users/login")
       .pipe(
         map((user) => {
           localStorage.setItem('user', JSON.stringify(user));
@@ -36,8 +53,8 @@ export class AuthService {
     this.router.navigate(['/account/login']);
   }
 
-  register(user: IUser) {
-    return this.http.post<IUser>(environment.apiUrl + "/user/register", user);
-}
+  // register(user: IUser) {
+  //   return this.http.post<IUser>(environment.apiUrl + "/user/register", user);
+  // }
 
 }

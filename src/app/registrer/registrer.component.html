@@ -1,0 +1,60 @@
+<div class="container mt-5">
+  <div class="row justify-content-md-center align-items-center">
+
+    <div class="col-md-auto p-5 roundedCorners" style="background-color:white">
+
+      <div class="text-center">
+        <i class="fa-solid fa-rocket fa-2xl colorGray mb-4 center"></i>
+        <h1 class="colorDarkGray">AngularTesting</h1>
+        <h4 class="colorGray mb-5">logg inn</h4>
+      </div>
+
+      <form [formGroup]="registerFormGroup" (ngSubmit)="onSubmit()">
+
+        <div class="form-floating mb-4">
+          <input type="text" class="form-control" id="firstname"  name="firstname" formControlName="firstname" placeholder="fornavn">
+          <label for="firstname" class="form-label text-bold">Fornavn</label>
+        </div>
+
+        <div class="form-floating mb-4">
+          <input type="text" class="form-control" id="lastname"  name="lastname" formControlName="lastname"
+            placeholder="etternavn">
+          <label for="lastname" class="form-label text-bold">Etternavn</label>
+        </div>
+
+        <div class="form-floating mb-4">
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" formControlName="email"
+            placeholder="name@example.com">
+          <label for="email" class="form-label text-bold">E-post</label>
+        </div>
+
+        <div class="form-floating mb-4">
+          <input type="password" id="password" class="form-control" placeholder="Password" formControlName="password">
+          <label for="password" class="form-label">Passord</label>
+        </div>
+
+        <div class="form-floating mb-4">
+          <input type="password" id="repeatpassword" class="form-control" placeholder="repeatpassword" formControlName="repeatpassword">
+          <label for="repeatpassword" class="form-label">Gjenta Passord</label>
+        </div>
+
+        <div *ngIf="submitted && (email.errors || password.errors || firstname.errors || lastname.errors)" class="alert alert-danger mt-2">
+          <div *ngIf="email.errors?.['required']">Fornavn er påkrevd</div>
+          <div *ngIf="password.errors?.['required']">Passord er påkrevd</div>
+          <div *ngIf="firstname.errors?.['required']">Fornavn er påkrevd</div>
+          <div *ngIf="lastname.errors?.['required']">Etternavn er påkrevd</div>
+        </div>
+
+        <div class="row justify-content-md-end">
+
+          <div class="col col-auto">
+            <button type="submit" class="btn myBtnPrimary">Register</button>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+</div>

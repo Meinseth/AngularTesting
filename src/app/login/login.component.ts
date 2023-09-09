@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core'
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { HttpService } from '../service/http/http.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth/auth.service';
 import { first } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { IUser } from '../Interfaces/interface';
+import { IUser } from '../interfaces/interface';
 
 @Component({
   standalone: true,
@@ -22,8 +21,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authSerive: AuthService,
-    private router: Router,
-    private httpService: HttpService
+    private router: Router
   ) { }
 
   loginFormGroup = new FormGroup({
@@ -42,39 +40,10 @@ export class LoginComponent implements OnInit {
     return this.loginFormGroup.controls.password;
   }
 
-  addUser() {
-    var newUser: IUser = {
-      id: undefined,
-      email: 'vebjorn@meinseth.no',
-      password: '12113662',
-      firstname: 'vebjorn',
-      lastname: 'meinseth',
-      username: 'mindseth'
-    }
-    this.httpService.addUser(newUser)
-      .pipe(first())
-      .subscribe({
-        next: user => {
-          console.log(user);
-        },
-        error: error => {
-          console.error(error)
-        }
-      })
-  }
+  goToRegister() {
+  this.router.navigate(['register']);
+}
 
-  getUsers(){
-    this.httpService.getUsers()
-    .pipe(first())
-    .subscribe({
-      next: user => {
-        console.log(user);
-      },
-      error: error => {
-        console.error(error)
-      }
-    })
-  }
 
   onSubmit(): void {
     this.submitted = true;
