@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { AuthService } from '../service/auth/auth.service';
 import { first } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { IUser } from '../interfaces/interface';
 
 @Component({
   standalone: true,

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../service/auth/auth.service';
 import { first } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { IUser } from '../interfaces/interface';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   standalone: true,
@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authSerive: AuthService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   loginFormGroup = new FormGroup({
@@ -41,11 +42,13 @@ export class LoginComponent implements OnInit {
   }
 
   goToRegister() {
-  this.router.navigate(['register']);
-}
+    // console.log('register');
+    this.router.navigate(['register']);
+  }
 
 
   onSubmit(): void {
+    // console.log('login', this.loginFormGroup.value);
     this.submitted = true;
 
     if (this.loginFormGroup.invalid) {
@@ -59,6 +62,11 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['home']);
         },
         error: error => {
+          console.log(error)
+          if(error.status == 404){
+            this.toastr.error("Feil epost eller passord")
+          }
+
           console.error(error);
         }
       })

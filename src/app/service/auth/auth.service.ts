@@ -1,15 +1,20 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, map } from 'rxjs';
-import { IUser } from 'src/app/interfaces/interface';
+import { IUser } from 'src/app/interfaces/interfaces';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
   user: BehaviorSubject<IUser | null>;
+
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+  }
 
   constructor(
     private router: Router,
@@ -18,14 +23,14 @@ export class AuthService {
     this.user = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!));
   }
 
-  register(firstname:string, lastname:string,email:string ,password:string): Observable<IUser> {
+  register(firstname: string, lastname: string, email: string, password: string): Observable<IUser> {
     const user = {
       firstname: firstname,
       lastname: lastname,
-      email:email,
-      password:password
+      email: email,
+      password: password
     }
-    return this.http.post<IUser>(environment.apiUrl + "/users/register", user)
+    return this.http.post<IUser>(environment.apiUrl + "/Users/register", user)
       .pipe(
         map((user) => {
           localStorage.setItem('user', JSON.stringify(user));
@@ -36,7 +41,11 @@ export class AuthService {
   }
 
   login(email: string | null, password: string | null): Observable<IUser> {
-    return this.http.get<IUser>(environment.apiUrl + "/users/login")
+    const user = {
+      email: email,
+      password: password
+    }
+    return this.http.post<IUser>(environment.apiUrl + "/Users/login", user, this.httpOptions)
       .pipe(
         map((user) => {
           localStorage.setItem('user', JSON.stringify(user));
@@ -53,8 +62,6 @@ export class AuthService {
     this.router.navigate(['/account/login']);
   }
 
-  // register(user: IUser) {
-  //   return this.http.post<IUser>(environment.apiUrl + "/user/register", user);
-  // }
+
 
 }

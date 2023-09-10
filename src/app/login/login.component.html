@@ -12,8 +12,8 @@
       <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()">
 
         <div class="form-floating mb-4">
-          <input type="email" class="form-control" id="input" aria-describedby="emailHelp" name="email" formControlName="email"
-            placeholder="name@example.com">
+          <input type="email" class="form-control" id="input" aria-describedby="emailHelp" name="email"
+            formControlName="email" placeholder="name@example.com">
           <label for="input" class="form-label text-bold">E-post</label>
         </div>
 
@@ -30,7 +30,8 @@
         <div class="row justify-content-md-between">
 
           <div class="col col-auto">
-            <button (click)="goToRegister()" class="btn colorDarkGray" style="text-decoration: underline;font-weight: 500;">Registrer</button>
+            <button type="button" (click)="goToRegister()" class="btn colorDarkGray"
+              style="text-decoration: underline;font-weight: 500">Registrer</button>
           </div>
 
           <div class="col col-auto">
@@ -42,5 +43,19 @@
 
     </div>
 
+  </div>
+</div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="..." class="rounded me-2" alt="...">
+      <strong class="me-auto">Bootstrap</strong>
+      <small>11 mins ago</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
   </div>
 </div>
