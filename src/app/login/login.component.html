@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row justify-content-md-center align-items-center">
 
-    <div class="col-md-auto p-5 roundedCorners" style="background-color:white">
+    <div class="col-md-auto p-5 roundedCorners shadow" style="background-color:white">
 
       <div class="text-center">
         <i class="fa-solid fa-rocket fa-2xl colorGray mb-4 center"></i>
@@ -30,8 +30,7 @@
         <div class="row justify-content-md-between">
 
           <div class="col col-auto">
-            <button type="button" (click)="goToRegister()" class="btn colorDarkGray"
-              style="text-decoration: underline;font-weight: 500">Registrer</button>
+            <button type="button" (click)="goToRegister()" class="btn colorDarkGray btnNoBorder">Registrer</button>
           </div>
 
           <div class="col col-auto">
@@ -43,19 +42,5 @@
 
     </div>
 
-  </div>
-</div>
-
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <img src="..." class="rounded me-2" alt="...">
-      <strong class="me-auto">Bootstrap</strong>
-      <small>11 mins ago</small>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-      Hello, world! This is a toast message.
-    </div>
   </div>
 </div>

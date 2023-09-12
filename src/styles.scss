@@ -8,7 +8,7 @@
   --gray: rgba(103, 103, 103);
   --lightBlue: rgb(80, 232, 255);
   --offwhite: rgb(247, 247, 247);
-  --bluePurble: rgb(145,152,229);
+  --bluePurble: rgb(145, 152, 229);
   --darkBluePurble: rgb(119, 126, 198);
 }
 
@@ -18,7 +18,7 @@
 }
 
 .background {
-  background-image: linear-gradient(to left,var(--torquise), var(--bluePurble));
+  background-image: linear-gradient(to left, var(--torquise), var(--bluePurble));
 }
 
 .colorDarkGray {
@@ -27,6 +27,10 @@
 
 .colorGray {
   color: var(--gray);
+}
+
+.colorOffWhite {
+  color: var(--offwhite);
 }
 
 .roundedCorners {
@@ -39,9 +43,10 @@
 }
 
 .myBtnPrimary:focus {
-  color: var(--offwhite)!important;
-  background-color: var(--darkBluePurble)!important;
+  color: var(--offwhite) !important;
+  background-color: var(--darkBluePurble) !important;
 }
+
 .myBtnPrimary:active {
   color: var(--offwhite);
   background-color: var(--darkBluePurble);
@@ -50,4 +55,36 @@
 .myBtnPrimary:hover {
   color: var(--offwhite);
   background-color: var(--darkBluePurble);
+}
+
+.btnNoBorder {
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.navbarBtn {
+  // text-decoration: underline;
+  font-weight: 500;
+  font-size: 20px
+}
+
+.navbar {
+  height: 60px;
+  background-color: var(--darkGray);
+}
+
+.shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.circle {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.nowrap {
+  white-space: nowrap;
 }
