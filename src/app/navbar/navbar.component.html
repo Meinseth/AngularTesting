@@ -1,19 +1,24 @@
-<div class="navbar row shadow">
-  <div class="col nowrap" style="width: 251px;">
-      <div class="colorOffWhite" style="font-size: 24px"><i class="fa-solid fa-rocket colorOffWhite ms-4"></i> AngularTesting</div>
+<div class="navbar shadow flex-nowrap">
+  <div class="col" style="width: 251px;">
+    <button class="nowrap ms-4 navbarBtn" routerLink="/home" routerLinkActive="active" #router="routerLinkActive" style="font-size: 24px">
+      <i class="fa-solid fa-rocket me-2" style="text-decoration: none;" [ngClass]="{'active': router.isActive}"></i>
+      <span>AngularTesting</span>
+    </button>
   </div>
   <div class="col">
-    <button class="btn navbarBtn colorOffWhite">Hjem</button>
+    <button routerLink="/movies" routerLinkActive="active" class="navbarBtn colorOffWhite">Filmer</button>
   </div>
   <div class="col">
-    <button class="btn navbarBtn colorOffWhite">Filmer</button>
+    <button routerLink="/tv-series" routerLinkActive="active" class="navbarBtn colorOffWhite nowrap">Tv-serie</button>
   </div>
-  <div class="col">
-    <button class="btn navbarBtn colorOffWhite nowrap">Tv-serie</button>
-  </div>
-  <div class="col ">
-    <div class="d-flex justify-content-end">
-      <span class="circle me-4"></span>
+  <div class="col-1">
+    <div class="dropdown d-flex justify-content-end me-3 ps-3">
+      <button class="imageBtn p-1" type="button" data-bs-toggle="dropdown">
+        <span class="circle  text-center">{{initials}}</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" (click)="loggout()">Logg ut</a></li>
+      </ul>
     </div>
 
   </div>

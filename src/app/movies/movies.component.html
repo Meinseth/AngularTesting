@@ -1,1 +1,40 @@
 <app-navbar></app-navbar>
+<div class="container mt-5">
+  <div class="row justify-content-md-center align-items-center">
+
+    <div class="col-md-auto p-5 roundedCorners shadow" style="background-color:white" *ngIf="movies | async as movies;">
+
+      <div class="d-flex justify-content-end">
+        <h1>Min filmrangering</h1>
+        <button class="imageBtn ps-3 pe-3" (click)="addMovie()">
+          <i class="fa-solid fa-plus fa-xl colorMediumTorquise"></i>
+        </button>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titel</th>
+            <th scope="col">År</th>
+            <th scope="col">Lengde</th>
+            <th scope="col">Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let movie of movies" class="text-table">
+            <td scope="row">{{movie.position}}</td>
+            <td>{{movie.title}}</td>
+            <td>{{movie.year}}</td>
+            <td>{{movie.length}}</td>
+            <td>{{movie.rating}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div *ngIf="movies.length == 0" class="alert alert-info" role="alert">Ingen data funnet</div>
+
+    </div>
+
+  </div>
+</div>

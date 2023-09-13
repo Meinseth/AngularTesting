@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { AuthService } from '../service/auth/auth.service';
+import { AuthService } from '../services/auth/auth.service';
 import { IUser } from '../interfaces/interfaces';
 
 @Component({

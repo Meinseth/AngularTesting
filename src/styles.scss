@@ -33,6 +33,10 @@
   color: var(--offwhite);
 }
 
+.colorMediumTorquise {
+  color: var(--mediumTorquise);
+}
+
 .roundedCorners {
   border-radius: 5px;
 }
@@ -62,10 +66,26 @@
   font-weight: 500;
 }
 
+.imageBtn {
+  border: none;
+  background: none;
+}
+
 .navbarBtn {
-  // text-decoration: underline;
+  color: var(--offwhite);
   font-weight: 500;
-  font-size: 20px
+  font-size: 20px;
+  border: none;
+  background: none;
+}
+
+.navbarBtn>* {
+  color: var(--offwhite);
+}
+
+.navbarBtn:hover,
+.navbarBtn:hover>* {
+  color: var(--torquise);
 }
 
 .navbar {
@@ -78,8 +98,7 @@
 }
 
 .circle {
-  height: 25px;
-  width: 25px;
+  padding: 4px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
@@ -87,4 +106,10 @@
 
 .nowrap {
   white-space: nowrap;
+}
+
+.active,
+.active:hover,
+i.active {
+  text-decoration: underline;
 }

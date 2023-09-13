@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../service/auth/auth.service';
+import { AuthService } from '../services/auth/auth.service';
 import { first } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
@@ -23,7 +23,11 @@ export class LoginComponent implements OnInit {
     private authSerive: AuthService,
     private router: Router,
     private toastr: ToastrService
-  ) { }
+  ) {
+    if(authSerive.user){
+      this.router.navigate(['/home'])
+    }
+   }
 
   loginFormGroup = new FormGroup({
     email: new FormControl<string>('', Validators.required),
@@ -65,9 +69,11 @@ export class LoginComponent implements OnInit {
           console.log(error)
           if(error.status == 404){
             this.toastr.error("Feil epost eller passord")
+          }else if(error.status == 0){
+            this.toastr.error("Ingen kontakt med server");
           }
 
-          console.error(error);
+          
         }
       })
 

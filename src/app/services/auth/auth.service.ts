@@ -12,10 +12,6 @@ export class AuthService {
 
   user: BehaviorSubject<IUser | null>;
 
-  httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
-  }
-
   constructor(
     private router: Router,
     private http: HttpClient
@@ -45,7 +41,7 @@ export class AuthService {
       email: email,
       password: password
     }
-    return this.http.post<IUser>(environment.apiUrl + "/Users/login", user, this.httpOptions)
+    return this.http.post<IUser>(environment.apiUrl + "/Users/login", user)
       .pipe(
         map((user) => {
           localStorage.setItem('user', JSON.stringify(user));
