@@ -31,6 +31,7 @@ export class NavbarComponent {
 
   loggout() {
     localStorage.removeItem('user');
+    this.authService.user.next(null);
     this.router.navigate(["/login"]);
   }
 

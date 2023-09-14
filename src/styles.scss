@@ -102,6 +102,8 @@
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
+  width:32px;
+  height: 32px;
 }
 
 .nowrap {
@@ -112,4 +114,8 @@
 .active:hover,
 i.active {
   text-decoration: underline;
+}
+
+.hand {
+  cursor: pointer;
 }

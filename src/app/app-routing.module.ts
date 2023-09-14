@@ -7,7 +7,6 @@ import { RegistrerComponent } from './registrer/registrer.component';
 import { MoviesComponent } from './movies/movies.component';
 
 const routes: Routes = [
-
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrerComponent },
 
